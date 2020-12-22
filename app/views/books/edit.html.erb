@@ -1,0 +1,40 @@
+<%= form_with(model: @book, local: true) do |form| %> 
+    <% if @book.errors.any? %> 
+        <div id="error_explanation"> 
+            <h2> 
+                error/s prohibited this book from being saved: 
+            </h2>
+            <ul> 
+                <% @book.errors.full_messages.each do |msg| %> 
+                    <li> <%= msg %> </li>
+                <% end %> 
+            </ul> 
+        </div> 
+    <% end %>  
+
+    <p>
+    <%=	form.label :title %><br>
+    <%=	form.text_field:title, placeholder: @book.title %>
+    </p>
+
+    <p>
+    <%=	form.label :author %><br>
+    <%=	form.text_field :author, placeholder: @book.author %>
+    </p>
+    
+    <p>
+    <%=	form.label :isbn %><br>
+    <%=	form.text_field :isbn, placeholder: @book.isbn %>
+    </p>    
+    
+    <p>
+    <%=	form.label :copies %><br>
+    <%=	form.text_field :copies, placeholder: @book.copies %>
+    </p>    
+
+    <p>
+    <%=	form.submit %>
+    </p>
+
+    <%=	link_to 'Back',	administrators_results_path %>
+<%	end	%>

@@ -1,0 +1,25 @@
+<h1> List of all Search Results </h1> 
+<% flash.each do |key, value| %>
+    <div class="alert alert-<%= key %>"><%= value %></div>
+  <% end %>
+<table> 
+<tr> 
+<th> Title </th>
+<th> Author </th> 
+<th> ISBN </th> 
+<th> Copies </th> 
+<th></th> 
+</tr> 
+
+<% @search.each do |book| %> 
+    <tr> 
+    <td> <%= book.title %> </td>
+    <td> <%= book.author %> </td>
+    <td> <%= book.isbn %> </td>
+    <td> <%= book.copies %> </td>
+    <td><%= link_to "Edit", edit_book_path(book) %> </td>
+    
+    <td><%= link_to "Checkout", book_checkout_path(book, title: params[:title], author: params[:author], isbn: params[:isbn])%>  </td>
+<% end %> 
+</table> 
+<td><%= link_to "Back", administrators_search_path %> </td>

@@ -1,0 +1,18 @@
+<h2> Add a review: </h2> 
+
+<%=	form_with(model:	 [	@book,	@book.reviews.build ],	local:	true)	do	|form|	%>
+<p>
+<%=	form.label :name	%><br>
+<%=	form.text_field :name	%>
+</p>
+<p>
+<%=	form.label :body	 %><br>
+<%=	form.text_area :body	%>
+</p>
+<p>
+<%=	form.submit %>
+</p>
+<%	end	%>
+<p> 
+<%= link_to "Back", patrons_results_path%> 
+</p> 

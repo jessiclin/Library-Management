@@ -1,0 +1,19 @@
+<h2>Reviews</h2>
+
+<% @book.reviews.each do |review| %> 
+    <p> 
+        <strong> Name: </strong> 
+        <%= review.name %> 
+    </p> 
+
+    <p> 
+        <strong> Review: </strong> 
+        <%= review.body %> 
+    </p> 
+    <p> 
+        <%= link_to "Back", patrons_results_path%> 
+    </p> 
+    <p> 
+        <%= link_to "Destroy Review", [review.book, review], method: :delete, data: {confirm: "Are you sure?"} %> 
+    </p> 
+<%	end	%>
